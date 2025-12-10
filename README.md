@@ -1,6 +1,10 @@
 # Azure Data Engineering — AdventureWorks
 
-Repositório técnico do projeto de Data Engineering que implementa um pipeline completo (Bronze → Curated → Gold) utilizando **Azure Data Factory**, **ADLS Gen2** e **Azure SQL Database**.
+Repositório técnico do projeto de Data Engineering que implementa um pipeline completo 
+(Bronze → Curated → Gold) utilizando **Azure Data Factory**, **ADLS Gen2** e **Azure SQL Database**.
+
+Todas as explicações detalhadas sobre arquitetura, decisões técnicas e fundamentos estão disponíveis no artigo publicado no Medium:  
+ [Construindo um Pipeline de Dados Moderno no Azure](https://medium.com/p/4d5034364e84)
 
 ---
 # Tecnologias Utilizadas
