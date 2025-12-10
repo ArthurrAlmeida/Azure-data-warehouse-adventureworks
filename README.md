@@ -1,4 +1,4 @@
-# Azure Data Engineering — AdventureWorks (Bronze → Curated → Gold)
+# Azure Data Engineering — AdventureWorks
 
 Repositório técnico do projeto de Data Engineering que implementa um pipeline completo (Bronze → Curated → Gold) utilizando **Azure Data Factory**, **ADLS Gen2** e **Azure SQL Database**.
 
