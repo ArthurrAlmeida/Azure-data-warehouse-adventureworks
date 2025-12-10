@@ -27,9 +27,9 @@ Repositório técnico do projeto de Data Engineering que implementa um pipeline 
 
 <img width="1237" height="621" alt="modelagem conceitual" src="https://github.com/user-attachments/assets/ce261e0c-9cd0-41d6-ba5c-d86513c74a12" />
 
-# Estrutura e Arquitetura do Data Lake
+# Estrutura e Arquitetura do Data WareHouse
 
-A arquitetura do Data Lake foi organizada em quatro camadas principais, seguindo boas práticas de Engenharia de Dados. Abaixo estão as definições e a relação com os arquivos presentes no repositório.
+A arquitetura do Data WareHouse foi organizada em quatro camadas principais, seguindo boas práticas de Engenharia de Dados. Abaixo estão as definições e a relação com os arquivos presentes no repositório.
 
 ## Camada RAW
 - Armazena os arquivos CSV exatamente como recebidos da fonte.
@@ -86,7 +86,7 @@ A modelagem física contempla:
 
 # Fluxo Completo do Pipeline
 
-1. O Azure Data Factory realiza a ingestão dos arquivos CSV para a camada RAW do Data Lake.
+1. O Azure Data Factory realiza a ingestão dos arquivos CSV para a camada RAW do Data WareHouse.
 2. Os dataflows realizam transformações iniciais e enviam os dados para a camada STAGING.
 3. Novos dataflows enriquecem, padronizam e entregam os dados na camada CURATED.
 4. Scripts SQL são utilizados para gerar tabelas dimensionais e fato na camada GOLD.
