@@ -1,0 +1,17 @@
+{
+	"name": "ds_curated_salesOrderDetail",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_bigtech",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "curated",
+			"table": "ds_curated_salesOrderDetail"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

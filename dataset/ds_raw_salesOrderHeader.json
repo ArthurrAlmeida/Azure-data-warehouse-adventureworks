@@ -1,0 +1,133 @@
+{
+	"name": "ds_raw_salesOrderHeader",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake_bigtech",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Raw"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Sales.SalesOrderHeader.csv",
+				"folderPath": "adventureworks",
+				"fileSystem": "raw"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SalesOrderID",
+				"type": "String"
+			},
+			{
+				"name": "RevisionNumber",
+				"type": "String"
+			},
+			{
+				"name": "OrderDate",
+				"type": "String"
+			},
+			{
+				"name": "DueDate",
+				"type": "String"
+			},
+			{
+				"name": "ShipDate",
+				"type": "String"
+			},
+			{
+				"name": "Status",
+				"type": "String"
+			},
+			{
+				"name": "OnlineOrderFlag",
+				"type": "String"
+			},
+			{
+				"name": "SalesOrderNumber",
+				"type": "String"
+			},
+			{
+				"name": "PurchaseOrderNumber",
+				"type": "String"
+			},
+			{
+				"name": "AccountNumber",
+				"type": "String"
+			},
+			{
+				"name": "CustomerID",
+				"type": "String"
+			},
+			{
+				"name": "SalesPersonID",
+				"type": "String"
+			},
+			{
+				"name": "TerritoryID",
+				"type": "String"
+			},
+			{
+				"name": "BillToAddressID",
+				"type": "String"
+			},
+			{
+				"name": "ShipToAddressID",
+				"type": "String"
+			},
+			{
+				"name": "ShipMethodID",
+				"type": "String"
+			},
+			{
+				"name": "CreditCardID",
+				"type": "String"
+			},
+			{
+				"name": "CreditCardApprovalCode",
+				"type": "String"
+			},
+			{
+				"name": "CurrencyRateID",
+				"type": "String"
+			},
+			{
+				"name": "SubTotal",
+				"type": "String"
+			},
+			{
+				"name": "TaxAmt",
+				"type": "String"
+			},
+			{
+				"name": "Freight",
+				"type": "String"
+			},
+			{
+				"name": "TotalDue",
+				"type": "String"
+			},
+			{
+				"name": "Comment",
+				"type": "String"
+			},
+			{
+				"name": "rowguid",
+				"type": "String"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

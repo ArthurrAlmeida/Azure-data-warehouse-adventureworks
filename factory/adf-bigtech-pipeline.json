@@ -1,0 +1,9 @@
+{
+	"name": "adf-bigtech-pipeline",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "86e9926f-a001-4066-bd0c-e19283790eaa",
+		"tenantId": "53c8b9fa-bf45-4dce-9eed-8b7e647acedb"
+	}
+}

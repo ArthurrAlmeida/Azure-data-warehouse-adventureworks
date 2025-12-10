@@ -1,0 +1,108 @@
+{
+	"name": "df_customer",
+	"properties": {
+		"folder": {
+			"name": "df.parquet"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_raw_customer",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "tabelaCustomer",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select2"
+				},
+				{
+					"name": "cast1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          CustomerID as string,",
+				"          PersonID as string,",
+				"          StoreID as string,",
+				"          TerritoryID as string,",
+				"          AccountNumber as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     limit: 100,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 select(mapColumn(",
+				"          CustomerID,",
+				"          PersonID,",
+				"          StoreID,",
+				"          TerritoryID,",
+				"          AccountNumber,",
+				"          rowguid,",
+				"          ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"cast1 derive(ModifiedDate = toTimestamp(ModifiedDate, 'yyyy-MM-dd HH:mm:ss.SSS')) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          CustomerID,",
+				"          PersonID,",
+				"          StoreID,",
+				"          TerritoryID,",
+				"          AccountNumber,",
+				"          rowguid,",
+				"          ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"select1 cast(output(",
+				"          CustomerID as integer '000',",
+				"          StoreID as integer '000',",
+				"          TerritoryID as integer '000'",
+				"     ),",
+				"     errors: true) ~> cast1",
+				"select2 sink(allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     input(",
+				"          CustomerID as integer,",
+				"          PersonID as string,",
+				"          StoreID as integer,",
+				"          TerritoryID as integer,",
+				"          AccountNumber as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     preCommands: [],",
+				"     postCommands: []) ~> sink1"
+			]
+		}
+	}
+}

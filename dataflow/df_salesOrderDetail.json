@@ -1,0 +1,125 @@
+{
+	"name": "df_salesOrderDetail",
+	"properties": {
+		"folder": {
+			"name": "df.parquet"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_raw_salesOrderDetail",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "tabelaSalesOrderDetail",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "cast1"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select2"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          SalesOrderID as string,",
+				"          SalesOrderDetailID as string,",
+				"          CarrierTrackingNumber as string,",
+				"          OrderQty as string,",
+				"          ProductID as string,",
+				"          SpecialOfferID as string,",
+				"          UnitPrice as string,",
+				"          UnitPriceDiscount as string,",
+				"          LineTotal as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     limit: 1000,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 select(mapColumn(",
+				"          SalesOrderID,",
+				"          SalesOrderDetailID,",
+				"          CarrierTrackingNumber,",
+				"          OrderQty,",
+				"          ProductID,",
+				"          SpecialOfferID,",
+				"          UnitPrice,",
+				"          UnitPriceDiscount,",
+				"          LineTotal,",
+				"          rowguid,",
+				"          ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 cast(output(",
+				"          OrderQty as integer '000',",
+				"          UnitPriceDiscount as float '000.##'",
+				"     ),",
+				"     errors: true) ~> cast1",
+				"cast1 derive(UnitPrice = toDecimal(replace(replace(UnitPrice, '.', ''), ',', '.')),",
+				"          LineTotal = toDecimal(replace(LineTotal, '.', ''), 18, 0),",
+				"          ModifiedDate = toTimestamp(ModifiedDate, 'yyyy-MM-dd HH:mm:ss.SSS')) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          SalesOrderID,",
+				"          SalesOrderDetailID,",
+				"          CarrierTrackingNumber,",
+				"          OrderQty,",
+				"          ProductID,",
+				"          SpecialOfferID,",
+				"          UnitPrice,",
+				"          UnitPriceDiscount,",
+				"          LineTotal,",
+				"          rowguid,",
+				"          ModifiedDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"select2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          SalesOrderID as integer,",
+				"          SalesOrderDetailID as integer,",
+				"          CarrierTrackingNumber as string,",
+				"          OrderQty as integer,",
+				"          ProductID as integer,",
+				"          SpecialOfferID as string,",
+				"          UnitPrice as decimal(18,2),",
+				"          UnitPriceDiscount as decimal(18,4),",
+				"          LineTotal as integer,",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     preCommands: [],",
+				"     postCommands: []) ~> sink1"
+			]
+		}
+	}
+}

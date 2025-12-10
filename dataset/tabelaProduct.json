@@ -1,0 +1,127 @@
+{
+	"name": "tabelaProduct",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_bigtech",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ProductID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MakeFlag",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FinishedGoodsFlag",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Color",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SafetyStockLevel",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ReorderPoint",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StandardCost",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "ListPrice",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "Size",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SizeUnitMeasureCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WeightUnitMeasureCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Weight",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DaysToManufacture",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProductLine",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Class",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Style",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductSubcategoryID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductModelID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "rowguid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SellStartDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "SellEndDate",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "curated",
+			"table": "Product"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,135 @@
+{
+	"name": "tabelaSalesOrderHeader",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_bigtech",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "SalesOrderID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "RevisionNumber",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OrderDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DueDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ShipDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Status",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OnlineOrderFlag",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SalesOrderNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PurchaseOrderNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AccountNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CustomerID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TerritoryID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BillToAddressID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ShipToAddressID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ShipMethodID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CreditCardID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CreditCardApprovalCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CurrencyRateID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SubTotal",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "TaxAmt",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "Freight",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "TotalDue",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "rowguid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "curated",
+			"table": "SalesOrderHeader"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
