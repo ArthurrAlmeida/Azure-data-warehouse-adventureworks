@@ -19,14 +19,95 @@ Repositório técnico do projeto de Data Engineering que implementa um pipeline 
 
 <img width="1042" height="601" alt="Diagrama Azure AdventureWorks" src="https://github.com/user-attachments/assets/b95e1cd6-abfa-4077-881f-458623651126" />
 
+---
+
 ### Modelagem Relacional OLTP:
 
 <img width="1942" height="1781" alt="Untitled" src="https://github.com/user-attachments/assets/a1492a20-7fd0-4eaa-a996-b12c7f4f21ed" />
+
+---
 
 ### Modelagem Conceitual dos Dados
 
 <img width="1237" height="621" alt="modelagem conceitual" src="https://github.com/user-attachments/assets/ce261e0c-9cd0-41d6-ba5c-d86513c74a12" />
 
+---
+
+## Estrutura de Pastas do Projeto
+
+A organização a seguir reflete toda a arquitetura desenvolvida no projeto, incluindo pipelines, datasets, dataflows, consultas SQL e arquivos relacionados ao processo de engenharia de dados na Azure.
+
+```markdown
+📁 Azure Fabric
+│
+├── 📂 Analise_de_dados/                # Consultas SQL e análises exploratórias
+│   ├── Consulta_1.csv
+│   ├── Consulta_2.csv
+│   ├── Consulta_3.csv
+│   ├── query_1.sql
+│   ├── query_2.sql
+│   └── query_3.sql
+│
+├── 📂 Dados_Utilizados/                # Arquivos CSV brutos usados no projeto
+│   ├── Person.Person.csv
+│   ├── Production.Product.csv
+│   ├── Sales.Customer.csv
+│   ├── Sales.SalesOrderDetail.csv
+│   ├── Sales.SalesOrderHeader.csv
+│   └── Sales.SpecialOfferProduct.csv
+│
+├── 📂 dataflow/                        # Dataflows do ADF (transformações)
+│   ├── df_customer.json
+│   ├── df_person.json
+│   ├── df_product.json
+│   ├── df_salesOrderDetail.json
+│   ├── df_salesOrderHeader.json
+│   └── df_specialOfferProduct.json
+│
+├── 📂 dataset/                         # Datasets do ADF (raw, staging, curated)
+│   ├── ds_raw_customer.json
+│   ├── ds_raw_person.json
+│   ├── ds_raw_product.json
+│   ├── ds_raw_salesOrderDetail.json
+│   ├── ds_raw_salesOrderHeader.json
+│   ├── ds_raw_specialOfferProduct.json
+│   ├── ds_staging_customer.json
+│   ├── ds_staging_person.json
+│   ├── ds_staging_product.json
+│   ├── ds_staging_salesOrderDetail.json
+│   ├── ds_staging_salesOrderHeader.json
+│   ├── ds_staging_specialOfferProduct.json
+│   ├── ds_curated_customer.json
+│   ├── ds_curated_person.json
+│   ├── ds_curated_product.json
+│   ├── ds_curated_salesOrderDetail.json
+│   ├── ds_curated_salesOrderHeader.json
+│   └── ds_curated_specialOfferProduct.json
+│
+├── 📂 tabelas_sql/                     # Estrutura das tabelas utilizadas
+│   ├── tabelaCustomer.json
+│   ├── tabelaPerson.json
+│   ├── tabelaProduct.json
+│   ├── tabelaSalesOrderDetail.json
+│   ├── tabelaSalesOrderHeader.json
+│   └── tabelaSpecialOfferProduct.json
+│
+├── 📂 factory/                         # Configuração da Data Factory exportada
+│   └── adf-bigtech-pipeline.json
+│
+├── 📂 linkedService/                   # Conexões com SQL DB e Data Lake
+│   ├── ls_datalake_bigtech.json
+│   └── ls_sql_bigtech.json
+│
+├── 📂 pipeline/                        # Pipelines de ingestão e tratamento
+│   ├── CopyAllCSVToLake.json
+│   └── PL_Curated_AdventureWorks.json
+│
+├── publish_config.json                 # Configuração de publicação do ADF
+└── README.md                           # Documentação do repositório
+
+```
+---
 # Estrutura e Arquitetura do Data WareHouse
 
 A arquitetura do Data WareHouse foi organizada em quatro camadas principais, seguindo boas práticas de Engenharia de Dados. Abaixo estão as definições e a relação com os arquivos presentes no repositório.
