@@ -99,3 +99,10 @@ A modelagem física contempla:
 1.	Escreva uma query que retorna a quantidade de linhas na tabela Sales.SalesOrderDetail pelo campo SalesOrderID, desde que tenham pelo menos três linhas de detalhes.
 2.	Escreva uma query que ligue as tabelas Sales.SalesOrderDetail, Sales.SpecialOfferProduct e Production.Product e retorne os 3 produtos (Name) mais vendidos (pela soma de OrderQty), agrupados pelo número de dias para manufatura (DaysToManufacture).
 3.	Escreva uma query usando as tabelas Sales.SalesOrderHeader, Sales.SalesOrderDetail e Production.Product, de forma a obter a soma total de produtos (OrderQty) por ProductID e OrderDate.
+
+
+# Recursos Utilizados para criação do Projeto Completo
+
+#### Para o desenvolvimento deste projeto, o ambiente permaneceu ativo durante aproximadamente um mês. Devido à minha rotina de trabalho em outra cidade, não houve a necessidade de desativar ou pausar recursos ao longo desse período, resultando em utilização contínua dos serviços do Azure.
+
+<img width="1420" height="980" alt="costanalysis_charts" src="https://github.com/user-attachments/assets/ddaf16c0-3268-4b20-a5d8-7c73180e33d5" />
